@@ -1,0 +1,14 @@
+{
+  "name": "practice-react",
+  "version": "0.2021.1",
+  "description": "個人のreact勉強用リポジトリ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oishi-riku/practice-react.git"
+  },
+  "author": "",
+  "license": "UNLICENSED"
+}
