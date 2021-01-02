@@ -10,5 +10,8 @@
     "url": "git+https://github.com/oishi-riku/practice-react.git"
   },
   "author": "",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "create-react-app": "^4.0.1"
+  }
 }
