@@ -1,16 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {composeWithDevTools} from 'redux-devtools-extension';
+
 import reducer from './reducers'
-import App from './components/App';
+import EventsIndex from './components/events_index';
+import EventsNew from './components/events_new';
+import EventsShow from './components/events_show';
 import reportWebVitals from './reportWebVitals';
 
-const store = createStore(reducer)
+const enhancer = process.env.NODE_ENV === 'develop' ?
+    composeWithDevTools(applyMiddleware(thunk)) : applyMiddleware(thunk);
+const store = createStore(reducer, enhancer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+      <BrowserRouter>
+        <Switch>
+            <Route exact path="/" component={EventsIndex}></Route>
+            <Route path="/events/new/" component={EventsNew}></Route>
+            <Route path="/events/:id/" component={EventsShow}></Route>
+        </Switch>
+      </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );
